@@ -71,7 +71,7 @@ def actualizar_stock():         #ingresa producto nuevo y lo almacena en diccion
     print('\nPRODUCTO\t\tDESCRIPCION\t\t\tSTOCK\n')     #imprime listado de productos actualizado
     for prod,val in bodega_dicc.items():
         print(prod,'\t\t',val[0],'\t\t',val[1])
-    print('\nSi desea ingresar otro producto, seleccione la opcion 3 del Menu Bodega\n')
+    print('\nSi desea ingresar otro producto, seleccione la opcion 4 del Menu Bodega\n')
 #elimina producto
 def eliminar_producto():
     print('\nListado de productos\n')
@@ -89,7 +89,7 @@ def eliminar_producto():
     print('\nPRODUCTO\t\tDESCRIPCION\t\t\tSTOCK\n')
     for prod,val in bodega_dicc.items():
         print(prod,'\t\t',val[0],'\t\t',val[1])
-    print('\nSi desea eliminar otro producto, seleccione la opcion 4 del Menu Bodega\n')
+    print('\nSi desea eliminar otro producto, seleccione la opcion 3 del Menu Bodega\n')
 #despliega productos disponibles
 def mostrar_prod_disponibles():     #imprime productos en listado en forma tabular
     print('\nPRODUCTO\t\tDESCRIPCION\t\t\tSTOCK\n')
@@ -112,18 +112,16 @@ def verificar_stock_400():      #verifica stock de productos > 0 < q 400 u
         else:
             print('\nel producto ingresado no existe \n')
             preguntar=True
-    print('\nSi desea verificar si otro producto tiene un stock menor a 400 unidades, seleccione la opcion 5 del Menu Bodega\n')            
+    print('\nSi desea verificar si otro producto tiene un stock menor a 400 unidades, seleccione la opcion 6 del Menu Bodega\n')            
             
 #### menu ###
-
-
 
 def funcion_bodega():       #funcion de ejecucion para el menu de bbodega
     generacion_dicc()
     solicitud_ingreso = True
     while solicitud_ingreso:
                     print('\n','-'*40, 'MENU BODEGA', '-'*40,'\n')      # despliega menu de bodega
-                    info_bodega_menu = input("1 Agregar unidades a 1 producto \n2 Restar unidades a 1 producto \n3 Eliminar 1 producto\n4 Mostrar listado productos y stock disponible\n5 Revisar productos con menos de 400 unidades en stock\n6 Salir\n")
+                    info_bodega_menu = input("1 Agregar unidades a 1 producto \n2 Restar unidades a 1 producto \n3 Eliminar 1 producto\n4 Agregar 1 producto nuevo\n5 Mostrar listado productos y stock disponible\n6 Revisar productos con menos de 400 unidades en stock\n7 Salir\n")
                     if info_bodega_menu == "1":
                         sumar_stock()       #suma unidades al stock
                     elif info_bodega_menu == "2":
@@ -131,10 +129,12 @@ def funcion_bodega():       #funcion de ejecucion para el menu de bbodega
                     elif info_bodega_menu == "3":
                         eliminar_producto()                        #elimina producto  
                     elif info_bodega_menu == "4":
-                        mostrar_prod_disponibles()                 #muestra productos 
+                        actualizar_stock()                #ingresar producto nuevo
                     elif info_bodega_menu == "5":
-                        verificar_stock_400()                        #productos con menos de 400 u 
+                        mostrar_prod_disponibles()                 #muestra productos 
                     elif info_bodega_menu == "6":
+                        verificar_stock_400()                        #productos con menos de 400 u 
+                    elif info_bodega_menu == "7":
                         solicitud_ingreso = False       #sale del menu
                         respuesta_menu=True
                     else:
